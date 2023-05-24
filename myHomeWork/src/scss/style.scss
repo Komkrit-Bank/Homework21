@@ -2,12 +2,39 @@
 @import "bootstrap/scss/bootstrap";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
-.input__weight{
-    font-size: 20px;
+:root {
+    --background-color: rgb(254, 234, 195);
+    --primary-color: orange;
+    --box-background: white;
 }
 
-body {
-    background-color: rgb(254, 234, 195);
+[data-theme="dark_mode"] {
+--background-color: #786b6b;
+--primary-color: black;
+--box-background: #786b6b;
+}
+
+.light_mode--card{
+    background-color: white;
+}
+
+.dark_mode--card{
+    background-color: #e7dede;
+    
+}
+
+h2 .form-label{
+    .light_mode--text {
+        color: orange;
+    }
+    .dark_mode--text{
+        color: black;
+    }
+}
+
+
+.input__weight{
+    font-size: 20px;
 }
 
 .theme_container{

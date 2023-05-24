@@ -1,14 +1,16 @@
 import { useForm } from 'react-hook-form'
 import { useState } from 'react';
-import Theme from './Theme';
 import '../scss/style.scss'
 
 type Inputs = {
-    weight: number;
+    weight: number,
+    theme: string
 };
 
-const Water = ()=>{
+const Water = (props: any)=>{
+    const { theme } = props
     const [result, setResult] = useState(0);
+
     const waterCal = (weight: any) => {
         const result = weight * 2.2 * 30/2
         return weight === 0? 'x' : result
@@ -16,13 +18,21 @@ const Water = ()=>{
 
     const { register, handleSubmit } = useForm<Inputs>();
     const onSubmit = (data:any) => setResult(data.weight)
+
+    const card_theme = (data: any) => {
+        if (data === 'light_mode'){
+            return "card border border-warning border-3" + theme + '--card';
+        } else {
+            return "card border border-white border-3" + theme + '--card';
+        }
+    }
     
     return(
         <>
-            <div className="card border border-warning border-3">
+            <div className= {card_theme(theme)}>
                 <div className="card-body">
                     <div className="card-title m-3">
-                        <h2 className='form-label' style={{color: 'orange', fontWeight: 'bold'}}>ควรดื่มน้ำวันละเท่าไหร่ ?</h2>
+                        <h2 className={'form-label '+ theme +'--text'}>ควรดื่มน้ำวันละเท่าไหร่ ?</h2>
                         <h3 className='form-label'>{waterCal(result).toLocaleString("en-US")} มล.</h3>
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -31,7 +41,6 @@ const Water = ()=>{
                     </form>
                 </div>
             </div>
-            <Theme/>
         </>
     )
 }
