@@ -1,4 +1,3 @@
-// Import all of Bootstrap's CSS
 @import "bootstrap/scss/bootstrap";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
@@ -14,22 +13,23 @@
 --box-background: #786b6b;
 }
 
+
 .light_mode--card{
     background-color: white;
 }
 
 .dark_mode--card{
-    background-color: #e7dede;
-    
+    background-color: #c5bcbc;
 }
 
-h2 .form-label{
-    .light_mode--text {
+
+
+.light_mode--text {
         color: orange;
-    }
-    .dark_mode--text{
+}
+
+.dark_mode--text{
         color: black;
-    }
 }
 
 
@@ -47,13 +47,15 @@ h2 .form-label{
     justify-content: center;
     align-items: center;
     gap: 10px;
-
-    svg{
-        font-size: 40px;
-    }
-    .form-select{
-        max-width: 100%;
-        font-size: 25px;
-        font-weight: bold;
-    }
 }
+
+svg{
+    font-size: 40px;
+}
+
+.form-select{
+    max-width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+}
+

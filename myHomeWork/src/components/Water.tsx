@@ -19,11 +19,19 @@ const Water = (props: any)=>{
     const { register, handleSubmit } = useForm<Inputs>();
     const onSubmit = (data:any) => setResult(data.weight)
 
-    const card_theme = (data: any) => {
+    const card_theme = (data: string) => {
         if (data === 'light_mode'){
-            return "card border border-warning border-3" + theme + '--card';
+            return "card border border-warning border-3 " + theme + '--card';
         } else {
-            return "card border border-white border-3" + theme + '--card';
+            return "card border border-white border-5 " + theme + '--card';
+        }
+    }
+
+    const button_theme = (data: string) => {
+        if (data === 'light_mode') {
+            return 'btn btn-lg btn-warning my-3'
+        } else {
+            return 'btn btn-lg btn-dark my-3'
         }
     }
     
@@ -37,7 +45,7 @@ const Water = (props: any)=>{
                     </div>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input {...register('weight')} className='form-control  mt-5 input__weight' placeholder='น้ำหนักของคุณ(กิโลกรัม)'/>
-                        <br/><button type='submit' className='btn btn-lg btn-warning my-3'>คำนวน</button>
+                        <br/><button type='submit' className={ button_theme(theme) }>คำนวน</button>
                     </form>
                 </div>
             </div>
